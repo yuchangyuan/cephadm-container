@@ -1,0 +1,10 @@
+[Unit]
+Description=lsync for /etc/systemd
+After=network.target
+
+[Service]
+Restart=always
+Type=simple
+ExecStart=/usr/bin/lsyncd -nodaemon -pidfile /run/lsyncd.pid /etc/lsyncd.conf
+ExecReload=/bin/kill -HUP $MAINPID
+PIDFile=/run/lsyncd.pid

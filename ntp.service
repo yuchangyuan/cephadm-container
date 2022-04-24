@@ -1,0 +1,7 @@
+[Unit]
+After=network.target
+
+[Service]
+ExecStart=/bin/sleep inf
+Restart=always
+Type=simple
