@@ -4,6 +4,7 @@ RUN dnf -y install \
     systemd openssh-server openssh-clients \
     cephadm podman containernetworking-plugins \
     lsyncd rsync \
+    procps \
     iproute && \
     dnf clean all
 
