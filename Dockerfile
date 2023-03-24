@@ -5,6 +5,7 @@ RUN dnf -y install \
     cephadm podman containernetworking-plugins \
     lsyncd rsync \
     procps \
+    less \
     iproute && \
     dnf clean all
 
