@@ -1,5 +1,5 @@
 podman build \
   --security-opt=seccomp=unconfined \
   --net=host \
-  -t cephadm-container:v0.7 \
+  -t cephadm-container:v0.8 \
   .

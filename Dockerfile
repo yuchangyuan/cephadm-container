@@ -1,4 +1,4 @@
-FROM fedora:36
+FROM fedora:37
 
 RUN dnf -y install \
     systemd openssh-server openssh-clients \
@@ -6,6 +6,7 @@ RUN dnf -y install \
     lsyncd rsync \
     procps \
     less \
+    which \
     iproute && \
     dnf clean all
 
