@@ -1,4 +1,4 @@
-FROM fedora:37
+FROM fedora:42
 
 RUN dnf -y install \
     systemd openssh-server openssh-clients \
@@ -45,7 +45,7 @@ RUN mkdir -p /etc/ceph && \
     mkdir -p /var/lib/containers && \
     mkdir -p /var/lib/ceph && \
     mkdir -p /var/log/ceph && \
-    (cd /root; ln -s /etc/ceph/ssh .ssh)
+    (cd /root; rm -rf .ssh; ln -s /etc/ceph/ssh .ssh)
 
 VOLUME /etc/ceph
 VOLUME /var/lib/containers
