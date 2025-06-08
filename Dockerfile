@@ -3,7 +3,7 @@ FROM fedora:42
 RUN dnf -y install \
     systemd openssh-server openssh-clients \
     cephadm podman containernetworking-plugins \
-    lsyncd rsync \
+    rsync \
     procps \
     less \
     which \
@@ -29,15 +29,15 @@ RUN (for i in \
   dnf-makecache.timer \
   fstrim.timer; do \
   rm -f /etc/systemd/system/*.wants/$i; \
-  done)
+  done; \
+  rm /lib/systemd/system/console-getty.service; \
+  rm /lib/systemd/system/systemd-vconsole-setup.service; \
+)
 
 COPY ./ntp.service /etc/systemd/system
-COPY ./lsyncd.service /etc/systemd/system
-COPY ./lsyncd.conf /etc
 
 RUN (cd /etc/systemd/system/multi-user.target.wants; \
-  ln -s ../ntp.service; \
-  ln -s ../lsyncd.service)
+  ln -s ../ntp.service )
 
 RUN find /etc/systemd | xargs touch -h -t 197001010000
 

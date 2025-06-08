@@ -5,6 +5,7 @@ mkdir -p /etc/ceph/ssh
 mkdir -p /var/lib/ceph/containers
 
 podman run --rm -d \
+  -it \
   --net=host \
   --privileged=true \
   --name=cephadm3 \
@@ -13,4 +14,4 @@ podman run --rm -d \
   -v /var/log/ceph:/var/log/ceph:z \
   -v /etc/ceph:/etc/ceph:z \
   -v /dev:/dev:z \
-  cephadm-container:v0.5
+  cephadm-container:v0.10
