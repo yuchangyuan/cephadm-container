@@ -14,4 +14,4 @@ podman run --rm -d \
   -v /var/log/ceph:/var/log/ceph:z \
   -v /etc/ceph:/etc/ceph:z \
   -v /dev:/dev:z \
-  cephadm-container:v0.10
+  cephadm-container:v0.10.1

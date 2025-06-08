@@ -4,6 +4,7 @@ RUN dnf -y install \
     systemd openssh-server openssh-clients \
     cephadm podman containernetworking-plugins \
     rsync \
+    fuse-overlayfs \
     procps \
     less \
     which \
@@ -32,6 +33,7 @@ RUN (for i in \
   done; \
   rm /lib/systemd/system/console-getty.service; \
   rm /lib/systemd/system/systemd-vconsole-setup.service; \
+  mkdir -p /etc/logrotate.d; \
 )
 
 COPY ./ntp.service /etc/systemd/system

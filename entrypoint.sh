@@ -13,7 +13,7 @@ mkdir -p $W
 
 cp -a /etc/systemd/system $L
 
-mount -t overlay overlay \
+fuse-overlayfs \
     -o lowerdir=$L,upperdir=$U,workdir=$W \
     /etc/systemd/system
 
